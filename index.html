@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalho do Trimestre | Hall of Fame 7º Ano (Persian Version)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --secondary: #065f46;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --card-radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', Tahoma, Arial, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 24px 14px; }
+    .container { max-width: 880px; margin: 0 auto; }
+
+    /* HEADER */
+    .header-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff; padding: 36px 24px; border-radius: var(--card-radius);
+      box-shadow: var(--shadow); margin-bottom: 24px; text-align: center;
+    }
+    .badge {
+      display: inline-block; background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 4px 14px; border-radius: 9999px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .header-card h1 { font-size: 1.95rem; font-weight: 800; margin-bottom: 8px; line-height: 1.25; }
+    .header-card p { font-size: 0.95rem; opacity: 0.92; }
+
+    /* CARTÕES E SEÇÕES */
+    .section-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius);
+      padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow);
+    }
+    .section-title {
+      font-size: 1.25rem; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--border);
+      padding-bottom: 10px; margin-bottom: 18px; display: flex; align-items: center; justify-content: flex-end; gap: 10px;
+    }
+
+    /* TEXTOS EM PERSA (RTL) */
+    .rtl-text { direction: rtl; text-align: right; }
+
+    /* MENSAGEM DE ACOLHIMENTO */
+    .inclusive-box {
+      background: #fffbeb; border: 1px solid #fef3c7; border-right: 5px solid var(--accent);
+      padding: 20px; border-radius: 8px; direction: rtl; text-align: right;
+    }
+    .inclusive-box h3 { color: #b45309; font-size: 1.3rem; margin-bottom: 10px; }
+    .inclusive-box p { color: #78350f; font-size: 1.1rem; line-height: 1.8; margin-bottom: 10px; }
+    
+    .translation-pt {
+      direction: ltr; text-align: left; font-size: 0.88rem; color: #64748b; 
+      border-top: 1px dashed #cbd5e1; padding-top: 12px; margin-top: 12px;
+    }
+
+    /* DUAS COLUNAS */
+    .two-cols { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 16px 0; direction: rtl; }
+    @media (min-width: 640px) { .two-cols { grid-template-columns: 1fr 1fr; } }
+    .item-card { background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid var(--border); text-align: right; }
+    .item-card h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+    .item-card p { font-size: 1rem; color: var(--text-main); line-height: 1.7; }
+
+    /* SENTENCE FRAMES & BOTÕES */
+    .frame-sentence {
+      font-size: 1rem; font-weight: 600; color: #1e3a8a; background: #eff6ff;
+      padding: 12px 14px; border-radius: 6px; margin-bottom: 10px; border: 1px dashed #93c5fd;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; direction: ltr;
+    }
+    .frame-sentence span { color: var(--accent); }
+    .btn-audio {
+      background: #0284c7; color: #ffffff; border: none; padding: 8px 15px; border-radius: 6px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer; display: inline-flex;
+      align-items: center; gap: 5px; transition: 0.2s ease; flex-shrink: 0;
+    }
+    .btn-audio:hover { background: #0369a1; transform: scale(1.03); }
+
+    /* DICIONÁRIO */
+    .dict-container { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 20px; direction: rtl; }
+    .dict-search-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .dict-input { flex: 1; min-width: 240px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; outline: none; }
+    .dict-btn { background: var(--secondary); color: #ffffff; border: none; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    .dict-btn:hover { background: #044e3a; }
+    .dict-result-box {
+      background: #ffffff; border: 1px dashed var(--border); border-radius: 8px; padding: 16px;
+      display: none; align-items: center; justify-content: space-between; gap: 12px; direction: ltr;
+    }
+
+    footer { text-align: center; font-size: 0.82rem; color: var(--text-muted); padding: 24px 0 12px 0; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- CABEÇALHO -->
+    <header class="header-card">
+      <span class="badge">پروژه سه ماهه سوم</span>
+      <h1>Hall of Fame: The Inspiring People Gallery</h1>
+      <p>Língua Inglesa • Colégio Estadual Nossa Senhora de Lourdes</p>
+    </header>
+
+    <!-- MENSAGEM DE ACOLHIMENTO -->
+    <section class="section-card">
+      <div class="inclusive-box">
+        <h3>🌱 پیامی از طرف معلم شما</h3>
+        <p>دانش‌آموز عزیز، ما از روند یادگیری زبان جدید و مشکلات آن آگاه هستیم، بنابراین هیچ نیازی به نگرانی و اضطراب نیست. معلم شما این شرایط را کاملاً درک می‌کند و در ارزیابی‌ها آن را در نظر می‌گیرد. من به اینکه چقدر در این مسیر شجاعانه در حال پیشرفت هستی، بسیار افتخار می‌کنم. ما اینجا در کنار تو هستیم!</p>
+        
+        <div class="translation-pt">
+          <strong>(Nota para o Professor):</strong> "Querido aluno, nós temos consciência do processo de aprender uma nova língua e das dificuldades, então não há necessidade de preocupação e ansiedade. Seu professor entende totalmente essa condição e levará isso em consideração. Tenho muito orgulho do quão corajosamente você está se desenvolvendo nesse processo. Estamos aqui com você!"
+        </div>
+      </div>
+    </section>
+
+    <!-- O PROJETO (TRADUZIDO PARA PERSA) -->
+    <section class="section-card rtl-text">
+      <h2 class="section-title">🚀 پروژه: گالری افراد الهام‌بخش (دو بخش برای ارائه)</h2>
+      <p style="font-size: 1.05rem; margin-bottom: 14px;">
+        در این سه ماهه، شما در مورد یک شخصیت الهام‌بخش تحقیق می‌کنید و ویژگی‌های ظاهری، مهارت‌ها و دستاوردهای او در گذشته را به زبان انگلیسی ارائه می‌دهید!
+      </p>
+      
+      <div class="two-cols">
+        <div class="item-card">
+          <h4>🎤 بخش ۱: ارائه شفاهی (Pitch)</h4>
+          <p>یک ارائه کوتاه <strong>۱ تا ۲ دقیقه‌ای</strong> در کلاسی دوستانه و بدون استرس[cite: 2, 4]. شما شخصیت خود را با استفاده از جمله‌های تمرین شده معرفی خواهید کرد.</p>
+        </div>
+        <div class="item-card">
+          <h4>🎨 بخش ۲: پوستر (Profile Card)</h4>
+          <p>طراحی یک پوستر (روی مقوا یا در برنامه Canva) شامل عکس، اطلاعات زندگی در زمان گذشته ساده (Simple Past) و کلمات کلیدی برای کمک به صحبت‌های شما.</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 15px;">
+        <span style="background: var(--accent); color: white; padding: 6px 18px; border-radius: 20px; font-weight: bold; font-size: 1rem; direction: rtl; display: inline-block;">📅 تاریخ ارائه: هفته اول نوامبر (۳ تا ۶ نوامبر)</span>
+      </p>
+    </section>
+
+    <!-- MOLDURAS DE FALA -->
+    <section class="section-card rtl-text">
+      <h2 class="section-title">🗣️ قالب‌های جمله برای صحبت کردن (Sentence Frames)</h2>
+      <p style="font-size: 1rem; margin-bottom: 14px;">برای شنیدن تلفظ و تمرین صحبت‌های خود روی <strong>شنیدن (Ouvir) 🔊</strong> کلیک کنید:</p>
+
+      <strong style="font-size: 1rem; color: var(--secondary); display: block; margin-bottom: 6px;">1. ویژگی‌های ظاهری (Have/Has)</strong>
+      <div class="frame-sentence">
+        <button class="btn-audio" onclick="playSpeech('This is my hero. She has dark eyes and a brilliant mind.')">🔊 Ouvir (شنیدن)</button>
+        <div>"This is my hero. She <span>has</span> dark eyes and a brilliant mind."</div>
+      </div>
+
+      <strong style="font-size: 1rem; color: var(--secondary); display: block; margin: 12px 0 6px 0;">2. مهارت‌ها (Can / Could)</strong>
+      <div class="frame-sentence">
+        <button class="btn-audio" onclick="playSpeech('She can inspire millions of people.')">🔊 Ouvir (شنیدن)</button>
+        <div>"She <span>can</span> inspire millions of people."</div>
+      </div>
+
+      <strong style="font-size: 1rem; color: var(--secondary); display: block; margin: 12px 0 6px 0;">3. حقایق تاریخی در گذشته (Simple Past)</strong>
+      <div class="frame-sentence">
+        <button class="btn-audio" onclick="playSpeech('In 2010, she won a very important prize.')">🔊 Ouvir (شنیدن)</button>
+        <div>"In 2010, she <span>won</span> a very important prize."</div>
+      </div>
+    </section>
+
+    <!-- DICIONÁRIO DE BOLSO (PERSA -> INGLÊS) -->
+    <section class="section-card rtl-text">
+      <h2 class="section-title">📖 فرهنگ لغت جیبی و مترجم صوتی</h2>
+      <p style="margin-bottom: 16px; font-size: 1rem;">
+        کلمه‌ای را به <strong>فارسی</strong> تایپ کنید (مثلاً: شجاع، خلاق، تاریخ...) تا ترجمه انگلیسی آن را ببینید و برای تمرین تلفظ روی <strong>شنیدن (Ouvir) 🔊</strong> کلیک کنید!
+      </p>
+
+      <div class="dict-container">
+        <div class="dict-search-row">
+          <input type="text" id="wordInput" class="dict-input" placeholder="کلمه را به فارسی بنویسید (مثال: شجاع)..." onkeyup="if(event.key==='Enter') searchDictionary()">
+          <button class="dict-btn" onclick="searchDictionary()">🔍 ترجمه و شنیدن</button>
+        </div>
+
+        <div id="dictResult" class="dict-result-box">
+          <button class="btn-audio" id="resAudioBtn">🔊 Ouvir</button>
+          <div style="text-align: right;">
+            <strong id="resTerm" style="color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 4px;"></strong>
+            <span id="resMeaning" style="color: var(--text-muted); font-size: 1.05rem;"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Colégio Estadual Nossa Senhora de Lourdes • Língua Inglesa 2026 • Londrina/PR
+    </footer>
+  </div>
+
+  <script>
+    // Configuração do Áudio Nativo
+    let selectedVoice = null;
+    function setupBestVoice() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      const englishVoices = voices.filter(v => v.lang.startsWith('en'));
+      selectedVoice = englishVoices.find(v => v.name.toLowerCase().includes('natural') || v.name.toLowerCase().includes('google')) || englishVoices[0];
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = setupBestVoice;
+      setupBestVoice();
+    }
+    function playSpeech(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        if (selectedVoice) utterance.voice = selectedVoice;
+        utterance.lang = 'en-US';
+        utterance.rate = 0.80;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Dicionário Local em Persa (Farsi) -> Inglês
+    const customDictionary = {
+      "شجاع": { ingles: "brave", exemplo: "مثال در انگلیسی: She was very brave." },
+      "خلاق": { ingles: "creative", exemplo: "مثال در انگلیسی: The poster was very creative." },
+      "مصمم": { ingles: "determined", exemplo: "مثال در انگلیسی: He is a determined leader." },
+      "الهام‌بخش": { ingles: "inspiring", exemplo: "مثال در انگلیسی: Her story is inspiring." },
+      "تاریخ": { ingles: "history", exemplo: "مثال در انگلیسی: We study world history." },
+      "متولد": { ingles: "born", exemplo: "مثال در انگلیسی: He was born in a beautiful city." },
+      "باهوش": { ingles: "smart", exemplo: "مثال در انگلیسی: She is very smart." },
+      "رهبر": { ingles: "leader", exemplo: "مثال در انگلیسی: A great leader helps people." },
+      "مهربان": { ingles: "kind", exemplo: "مثال در انگلیسی: Always be kind to others." },
+      "گذشته": { ingles: "past", exemplo: "مثال در انگلیسی: In the past, things were different." }
+    };
+
+    // Função Assíncrona Híbrida (Busca Persa -> Inglês com fallback no Google Tradutor)
+    async function searchDictionary() {
+      const input = document.getElementById('wordInput').value.trim();
+      const resultBox = document.getElementById('dictResult');
+      const termEl = document.getElementById('resTerm');
+      const meaningEl = document.getElementById('resMeaning');
+      const audioBtn = document.getElementById('resAudioBtn');
+
+      if (!input) {
+        alert('لطفاً یک کلمه وارد کنید. (Por favor, digite uma palavra).');
+        return;
+      }
+
+      termEl.innerText = "در حال جستجو... (Buscando...)";
+      meaningEl.innerHTML = "";
+      audioBtn.style.display = 'none';
+      resultBox.style.display = 'flex';
+
+      // 1. Busca Local
+      if (customDictionary[input]) {
+        const termoIngles = customDictionary[input].ingles;
+        const significadoTexto = `<strong>ترجمه انگلیسی:</strong> <span style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">${termoIngles.toUpperCase()}</span><br><em style="font-size: 0.95rem;">${customDictionary[input].exemplo}</em>`;
+        exibirResultado(input, significadoTexto, termoIngles);
+      } 
+      // 2. Busca na API do Google Tradutor (sl=fa -> tl=en)
+      else {
+        try {
+          const resposta = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=fa&tl=en&dt=t&q=${encodeURIComponent(input)}`);
+          const dados = await resposta.json();
+          
+          if (dados && dados[0] && dados[0][0] && dados[0][0][0]) {
+            const termoIngles = dados[0].map(item => item[0]).join('');
+            const significadoTexto = `<strong>ترجمه آنلاین:</strong> <span style="color: var(--primary); font-weight: 700; font-size: 1.2rem;">${termoIngles.toUpperCase()}</span>`;
+            exibirResultado(input, significadoTexto, termoIngles);
+          } else {
+            throw new Error('No translation found');
+          }
+        } catch (erro) {
+          termEl.innerText = "خطا! (Erro)";
+          meaningEl.innerHTML = `<strong>ترجمه پیدا نشد. سعی کنید کلمات ساده‌تری مثل 'شجاع' یا 'خلاق' وارد کنید.</strong>`;
+          audioBtn.style.display = 'none';
+        }
+      }
+    }
+
+    function exibirResultado(palavra, texto, ingles) {
+      const resultBox = document.getElementById('dictResult');
+      const termEl = document.getElementById('resTerm');
+      const meaningEl = document.getElementById('resMeaning');
+      const audioBtn = document.getElementById('resAudioBtn');
+
+      termEl.innerText = "نتیجه برای: " + palavra;
+      meaningEl.innerHTML = texto;
+      
+      audioBtn.style.display = 'inline-flex';
+      audioBtn.onclick = function() {
+        playSpeech(ingles);
+      };
+    }
+  </script>
+</body>
+</html>
